@@ -214,6 +214,7 @@ details[open] summary::after {
     font-family: Barlow Condensed;
     font-size: var(--h1-font-size);
     color: var(--header-font-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 
     display: flex;
     justify-content: center;
@@ -229,12 +230,49 @@ details[open] summary::after {
     border-radius: 0.3rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-    
+
+input[type="text"], input[type="password"] {
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+    height: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);    
+    font-family: Barlow Condensed;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #4CAF50; 
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); 
+    outline: none; 
+}
+
+input[type="submit"] {
+    width: 10rem;
+    padding: 0.5rem;
+    background-color: #4CAF50; 
+    font-family: Barlow Condensed;
+    text-transform: uppercase;
+    color: #fff; 
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; 
+}   
+ 
 
 </style>
 
 </head>
 <body>
+
 
 <div class="logpage">
     <div id="login-form">
@@ -2449,6 +2487,7 @@ details[open] summary::after {
 <div class="footer">Curated by: Swaroop Chakraborty, TBH-Bhopal</div>
 </section>
 </main>
+
 
 <script>
     // Hardcoded credentials for demonstration
