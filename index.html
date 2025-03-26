@@ -1,0 +1,2403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tanishq Realm</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Barlow+Condensed' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet'>
+
+<style>
+:root {
+    interpolate-size: allow-keywords;
+    --bg: hsl(147, 50%, 70%);
+    --header-bg: rgba(3, 68, 3, 0.3) ;
+    --bg-details: hsl(120, 50%, 95%);
+    --bg-box: #fff;
+    --header-font-color: #fff;
+    --font-color: hsl(147, 50%, 25%);
+    
+    --h1-font-size: 1.7rem;  /* Title 2rem */
+    --h2-font-size: 1.2rem;  /* Subheading 1.5rem */
+    --h3-font-size: 1.1rem;  /* Sub-subheading 1.1rem */
+    --body-font-size: 1rem; /* Base body font size 1rem */
+    --footer-font-size: 0.7rem;  /* Footer 0.75rem */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: var(--h2-font-size);
+}
+
+h3 {
+    font-size: var(--h3-font-size);
+}
+
+p {
+    margin-top: 0.5rem;
+}
+
+ul {
+	padding: 0 0 0 0.75rem;
+}
+
+li {
+	padding-left: 0.5rem;
+}
+
+li::marker {
+	content: "\2726"; /* 272D, 272B */ 
+}
+
+table {    
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-collapse: collapse;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(0.7rem, 1vw, 1rem);
+}
+
+th, td {
+	border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+th {
+    text-transform: uppercase;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	color: var(--font-color);
+    font-size: var(--body-font-size);
+    min-height: 100dvh;
+}
+
+nav {
+    background-color: var(--header-bg);
+    font-family: Barlow Condensed;
+    font-size: var(--h1-font-size);
+    color: var(--header-font-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-align: right;
+    padding: 0 1rem 0.5rem 0;
+    position: sticky;
+    top: 0;
+    margin-bottom: 1rem;
+    z-index: 9999;
+}
+
+.middle {
+	max-width: 1200px;
+	margin: auto;
+    padding: 0 1rem;
+
+	display: grid;
+    gap: 1rem;
+}
+
+.footer {
+    right: 0;
+    padding: 0 0 1rem 0;
+    text-align: right;
+    font-size: var(--footer-font-size);
+	font-weight: 600;
+}
+
+details {
+	background-color: var(--bg-details);
+	border-radius: 0.3rem;
+	overflow: hidden;
+	box-sizing: border-box;
+    box-shadow: 1px 1px 5px hsl(0, 0%, 60%);
+}
+
+/* don't add margin/padding to this, add it to the actual stuff inside the details content */
+details::details-content {
+	block-size: 0;
+	transition: block-size 1s, content-visibility 1s;
+	transition-behavior: allow-discrete;
+}
+
+details:open::details-content {
+	block-size: auto;
+}
+
+summary {    
+	background-color: var(--bg-details);
+	cursor: pointer;
+	position: relative;
+	padding: 0.75rem 1rem;
+    font-size: var(--h2-font-size);
+	text-transform: uppercase;
+	font-weight: 800;
+	
+	display:flex;
+	align-items: flex-start;
+}
+
+details > summary::marker {
+	content: "";
+	list-style: none;
+}
+
+details > summary::after {
+    content: "\271B";
+    position: absolute;
+    right: 1rem;
+    transition: transform 1s ease-in-out;
+    color: var(--font-color);
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+details[open] summary::after {
+  transform: rotate(495deg);
+}
+
+@media (min-width: 20rem) {
+    .content {
+        padding: 0 1rem 1rem 1rem;	
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        gap: 1rem;
+        box-sizing: border-box;
+    }
+
+    .box {
+        background-color: var(--bg-box);
+        padding: 1rem;
+        border-radius: 0.3rem;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 1px 1px 5px hsl(0, 0%, 80%);
+    }
+}
+
+.box.row2 {
+	grid-row: span 2;
+}
+
+.box.row3 {
+	grid-row: span 3;
+}
+
+.box.row4 {
+	grid-row: span 4;
+}
+
+.box.row5 {
+	grid-row: span 5;
+}
+    
+
+</style>
+
+</head>
+<body>
+
+<nav>
+    <h1>The Tanishq Realm</h1>
+    <h6>Beyond Jewellery: Timeless Elegance and Inspiration</h6>
+</nav>
+<section class="middle">
+
+    <details name="mygroup">
+        <summary>The Brand Story</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Years of Inception</h3>
+                <ul>
+                    <li><b>1868</b> - TATA started.</li>
+                    <li><b>1987</b> - Titan started.</li>
+                    <li><b>1994</b> - Tanishq’s very first <b>factory</b> with a proper karigaar park was set up in Hosur, Tamil Nadu with the launch of 18k gold watches studded with precious stones.</li>
+                    <li><b>1996</b> - First Tanishq <b>Store</b> was opened in Chennai.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Vision - Jewellery Division</h3>
+                <p>To be the most desirable Jewellery Brand for Indian women.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Values - Jewellery Division</h3>
+                <ul>
+                    <li>Honesty & Integrity</li>
+                    <li>Respect to all</li>
+                    <li>Customer Centric</li>
+                    <li>Passion for excellence</li>
+                    <li>Innovation</li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>The word 'Tanishq'</h3>
+                <p>The term Tanishq was coined by <b>Mr. Xerxes Desai</b> by marrying the words <b>‘Tan’</b> meaning body and <b>‘Nishk’</b> meaning a gold ornament.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Tanishq Stores</h3>
+                <p>490+ stores in India.</p>
+				<p>16 International stores</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>The People</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Traits of Tanishq RSOs</h3>
+                <p><b>F + 2E + 3P</b></p>
+                <ul>
+                    <li>Friendliness</li>
+                    <li>Expertise</li>
+                    <li>Empathy</li>
+                    <li>Presentable</li>
+                    <li>Providing Solutions</li>
+                    <li>Patience</li>
+                </ul>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>The Promises</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Tanishq - 10 Promises</h3>
+                <ul>
+                    <li>The Purity Guarantee.</li>
+                    <li>Great designs starting at 8% making charges and Rs.5000/- value.</li>
+                    <li>You never pay for stones at the rate of gold.</li>
+                    <li>Best exchange value for old gold.</li>
+                    <li>100% exchange value for diamonds, polki, rubies, emeralds.</li>
+                    <li>Every piece is brand new.</li>
+                    <li>Complete transparency in billing.</li>
+                    <li>Safe jewellery purchasing schemes.</li>
+                    <li>A Tanishq next door.</li>
+                    <li>The TATA trust.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Celeste Solitaires - 10 Promises</h3>
+                <ul>
+                    <li>Natural Origin</li>
+                    <li>Kimberley process Compliant</li>
+                    <li>Stricter parameters than 3rd party labs</li>
+                    <li>Absence of Reflecting Inclusions</li>
+                    <li>Absence of Red Natts</li>
+                    <li>Absence of Green/Brown tinge</li>
+                    <li>Absence of Milky Stones</li>
+                    <li>Absence of Black Inclusions of VVS</li>
+                    <li>Absence of Open Inclusions</li>
+                    <li>None/Faint Fluorescence</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Classic Solitaires - 5 Promises</h3>
+                <ul>
+                    <li>Natural Origin</li>
+                    <li>Kimberley process Compliant</li>
+                    <li>Absence of Red Natts</li>
+                    <li>Absence of Green/Brown tinge</li>
+                    <li>Non/Faint Fluorescence</li>
+                </ul>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Tanishq's Way Of Life</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Guard - Welcoming</h3>
+                <ul>
+                    <li>Namaste</li>
+                    <li>Open the door</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Greeter - Welcoming</h3>
+                <ul>
+                    <li>Namaste (within 15 seconds)</li>
+                    <li>Understand the requirement</li>
+                    <li>Handover to RSO</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>RSO - Understanding</h3>
+                <ul>
+                    <li>Namaste</li>
+                    <li>Introduce yourself</li>
+                    <li>First visit or not</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>About Tanishq - Understanding</h3>
+                <ul>
+                    <li>TATA Brand</li>
+                    <li>500+ stores in India</li>
+                    <li>16 International stores</li>
+                    <li>TBH opened in 2003</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Customer Details - Understanding</h3>
+                <ul>
+                    <li>Contact details</li>
+                    <li>Occasion</li>
+                    <li>Self or Gifting</li>
+                    <li>BDay/Ann (CRM) - Offers available</li>
+                    <li>Previous purchases (CRM)</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Engagement/Wedding - Understanding</h3>
+                <ul>
+                    <li>Congratulate</li>
+                    <li>Engagement/Wedding Date</li>
+                    <li>Greeting Card (SM/FM)</li>
+                    <li>Theme, Dress (Saree, Lehenga, etc.)</li>
+                    <li>Customs, Traditions, Events</li>
+                    <li>Jewellery for family - Father, Mother</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>PlainGold - Understanding</h3>
+                <ul>
+                    <li>Starting - 8% Making</li>
+                    <li>Karigari</li>
+                    <li>Finishing (10x loupe)</li>
+                    <li>Gold weight, Stone weight</li>
+                    <li>Gold Price, Stone Price</li>
+                    <li>Trial - Compliment</li>
+                    <li>Dupatta while trials</li>
+                    <li>Usage & Jewellery care</li>
+                    <li>Price breakup in POSS</li>
+                    <li>TEP & GEP Policy</li>
+                    <li>Upselling - Matching product</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Diamonds - Understanding</h3>
+                <ul>
+                    <li>Starting - &#8377; 5000/-</li>
+                    <li>Karigari</li>
+                    <li>Finishing (10x loupe)</li>
+                    <li>100% natural diamonds</li>
+                    <li>Same colour and clarity in a piece</li>
+                    <li>Certificate of Authenticity</li>
+                    <li>Gold weight, Stone weight</li>
+                    <li>Gold Price, Stone Price</li>
+                    <li>Trial - Compliment</li>
+                    <li>Dupatta while trials</li>
+                    <li>Usage & Jewellery care</li>
+                    <li>Price breakup in POSS</li>
+                    <li>TEP & GEP Policy</li>
+                    <li>Upselling - Matching product</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Options available - Price, Process, Policy</h3>
+                <ul>
+                    <li>Resizing</li>
+                    <li>Online Catalogue</li>
+                    <li>Endless Aisle</li>
+                    <li>Order - factory</li>
+                    <li>Ongoing Offers</li>
+                    <li>GHS / RGA - benefits</li>
+                    <li>BIS Care App - check hallmarking</li>
+                    <li>Tanishq App - payment modes available</li>
+                    <li>Store Walkthrough</li>
+                    <li>Karatmeter - check purity</li>
+                    <li>TEP & GEP Policies - again</li>
+                    <li>Craftsman room - offer cleaning</li>
+                    <li>Request for a time to call back</li>
+                    <li>Enquire the reason of non purchase</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Thanking - Farewell</h3>
+                <ul>
+                    <li>Thank the customer for visiting</li>
+                    <li>Request for Google Review</li>
+                    <li>Request for NPS Feedback</li>
+                    <li>Walk along towards exit door</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>What is TWOL or Tanishq's Way Of Life?</h3>
+                <p>It is the right way of doing the things daily, and the correct behaviour towards our customers by everyone in our boutiques.</p>
+            </div>
+    
+            <div class="box">
+                <h3>What are the 3 Pillars of TWOL?</h3>
+                <ul>
+                    <li>Welcoming our Customer</li>
+                    <li>Understanding our Customer</li>
+                    <li>Introducing Price and Process to Our Customer</li>
+                </ul>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Products</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Product Code Explained</h3>
+                <table style="width:100%">
+                    <tr>
+                        <th>Digits</th>
+                        <th colspan="2">Representation</th>
+                        <th>Sample</th>
+                    </tr>
+                    <tr>
+                        <td>1st & 2nd</td>
+                        <td colspan="2">Karatage</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>3rd to 6th</td>
+                        <td>Collection Code</td>
+                        <td rowspan="3">Theme Code</td>
+                        <td>G4I2</td>
+                    </tr>
+                    <tr>
+                        <td>7th</td>
+                        <td>Product</td>
+                        <td>F</td>
+                    </tr>
+                    <tr>
+                        <td>8th & 9th</td>
+                        <td>Design Number</td>
+                        <td>AH</td>
+                    </tr>
+                    <tr>
+                        <td>10th</td>
+                        <td colspan="2">Size</td>
+                        <td>R</td>
+                    </tr>
+                    <tr>
+                        <td>11th</td>
+                        <td colspan="2">Locking Mechanism</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>12th</td>
+                        <td colspan="2">Modification</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>13th & 14th</td>
+                        <td colspan="2">Stone Details</td>
+                        <td>02</td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="box">
+                <h3>Collection Categories</h3>
+                <table style="width:100%">
+                    <tr>
+                        <th style="width:50%">Collection</th>
+                        <th style="width:50%">Category</th>
+                    </tr>
+                    <tr>
+                        <td>Glam Days</td>
+                        <td>Daily Wear</td>
+                    </tr>
+                    <tr>
+                        <td>Dor</td>
+                        <td>Mangalsutra</td>
+                    </tr>
+                    <tr>
+                        <td>Rivaah</td>
+                        <td>Wedding</td>
+                    </tr>
+                    <tr>
+                        <td>Once Upon a Moment</td>
+                        <td>Kids</td>
+                    </tr>
+                    <tr>
+                        <td>Kalai</td>
+                        <td>Bangles</td>
+                    </tr>
+                    <tr>
+                        <td>Aveer</td>
+                        <td>Men's</td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="box">
+                <h3>WBQ in Tanishq Jewellery</h3>
+                <p>WBQ is the world’s Best Quality Standards for studded Jewellery. We have adopted the best techniques in the world to create world class products with the worlds best quality features in FIT to FINISH parameters.</p>
+					<ul>
+						<li>Replacing Traditional Round Prongs with Innovative Tapered Square Prongs. This has increased stone visibility and reduced prong visibility (40% pavilion made visible, initially pavilion not visible). This has also improved Setting security with more strength.</li>
+						<li>Transformation in the collect design with stronger Base, more strength, ability to withstand more shear and force.</li>
+						<li>The inside of Finger ring slightly domed for better fit while the inside of traditional band has flat surface. 100% dip rhodium for higher rhodium durability. Azure back and 360-degree polish.</li>
+					</ul>
+            </div>
+    
+            <div class="box">
+                <h3>NeedStates</h3>
+                <ul>
+                    <li>Cocktail</li>
+                    <li>Engagement</li>
+                    <li>Everydays</li>
+                    <li>F&B (Faith & Belief)</li>
+                    <li>Gents</li>
+                    <li>GoldCoin</li>
+                    <li>Kids</li>
+                    <li>Mia</li>
+                    <li>Occasion</li>
+                    <li>Silver</li>
+                    <li>Solitaire</li>
+                    <li>Wedding</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Complexity Groups</h3>
+                <table style="width:100%">
+                    <tr>
+                        <th style="width:40%">Details</th>
+                        <th style="width:20%">Lcg</th>
+                        <th style="width:20%">Mcg</th>
+                        <th style="width:20%">Hcg</th>
+                    </tr>
+                    <tr>
+                        <td>Making</td>
+                        <td>Lower</td>
+                        <td>Medium</td>
+                        <td>Higher</td>
+                    </tr>
+                    <tr>
+                        <td>Making%</td>
+                        <td>8% to 14%</td>
+                        <td>14% to 24%</td>
+                        <td>> 24%</td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="box">
+                <h3>What are the fast moving Ladies' and Gents' ring sizes?</h3>
+                <p>Ladies: L, M and N</p>
+                <p>Gents: R, S and T</p>
+            </div>
+    
+            <div class="box">
+                <h3>Which necklace styles can be worn close to the neck?</h3>
+                <p>Gulbandhs, Choker and Haslis</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Diamonds</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Discovery</h3>
+                <ul>
+                    <li>First discovered in India atleast 3000 years ago in Southern India along the rivers Krishna, Penner and Godavari.</li>
+                    <li>India dominated diamond production until diamonds were discovered in Brazil in 1730's and in South Africa in 1800's.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>About Diamonds</h3>
+                <ul>
+                    <li>Around 3.5 billion years old</li>
+                    <li>150 - 200km below earth's surface</li>
+                    <li>Temperature: Atleast 1050&degC</li>
+                    <li>Pressure: 45 - 65 kilobar</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>The word 'Diamond'</h3>
+                <p>The word “diamond” comes from the Greek word <b>adamas</b>, which means “unbreakable” or “invincible”.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Diamonds are</h3>
+                <ul>
+                    <li>Rare</li>
+                    <li>Timeless</li>
+                    <li>Unique</li>
+                    <li>Valuable</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Crystal Structure</h3>
+                <ul>
+                    <li>Carbon tetrahedrons</li>
+                    <li>Covalent bonds (strongest)</li>
+                    <li>Hexagonal crystalline structure</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>4 Cs of Diamonds</h3>
+                <ul>
+                    <li>Caratage</li>
+                    <li>Colour</li>
+                    <li>Clarity</li>
+                    <li>Cut</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>What is a Surprise Diamond?</h3>
+                <p>A surprise diamond is typically set below the collet (or sometimes under the main setting), often hidden from plain view. It is placed in such a way that it is not visible when looking at the piece from the top but can be seen from a different angle or when the jewelry is handled closely.</p>
+            </div>
+    
+            <div class="box">
+                <h3>When a single rough diamond is crafted into two diamonds, will both have the same color and clarity, weight etc?</h3>
+                <p>No, they can vary. The two diamonds come from different sections of the same rock, which will have different quality parameters.</p>
+            </div>
+    
+            <div class="box">
+                <h3>What makes 'Celeste cut' Solitaire different from Classic Solitaire?</h3>
+                <ul>
+                    <li>Tanishq's patented technology of creating "Nano-Facets" on Solitaires.</li>
+                    <li>Thousands of nano-prisms are etched onto the facets of a beautifully polished natural, diamond.</li>
+                    <li>Best in class Fire & Scintillation in the world.</li>
+                    <li>Filtered on 60 Quality Parameters.</li>
+                    <li>Nano Faceting Technology is the most significant innovation in diamond cutting in the last one hundred years.</li>
+                    <li>It has 6 International Patents.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Which place is the largest diamond cutting center in the world?</h3>
+                <p>Surat (India)</p>
+            </div>
+    
+            <div class="box">
+                <h3>____ of GIA graded stones only qualify for Tanishq quality.</h3>
+                <p>30%</p>
+            </div>
+    
+            <div class="box">
+                <h3>Carat</h3>
+                <p>1 Carat = 0.100 cents, points or pointers</p>
+            </div>
+    
+            <div class="box">
+                <h3>Classic solitaires are ____ less as compared to Signature cut solitaires?</h3>
+                <p>30% - 40%</p>
+            </div>
+    
+            <div class="box">
+                <h3>Higher ____ has a tendency to impact the colour of the diamond and make the solitaire look oily?</h3>
+                <p>Fluorescence</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Platinum</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Melting Points</h3>
+                <ul>
+                    <li>Platinum: 1768&degC</li>
+                    <li>Gold: 1064&degC</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Platinum Guild International</h3>
+                <ul>
+                    <li>Created in 1975</li>
+                    <li>Vision - to develop the global platinum jewellery market as a new demand source for platinum</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>PGI verified stamps</h3>
+                <ul>
+                    <li>95% Platinum- PLATINUM, PLAT, PT950, 950PT</li>
+                    <li>90% Platinum- PT900, 900PT, 90/10 Pt/Ir</li>
+                    <li>85% Platinum- PT850, 850PT</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <p>Platinum is the world's most precious metal. It is <b>30 times</b> more rare than gold.</p>
+            </div>
+    
+            <div class="box">
+                <p>Platinum's naturally white colour accentuates the beauty of diamonds and other coloured gemstones.</p>
+            </div>
+    
+            <div class="box">
+                <p>As platinum is heavier than gold, it feels more significant when worn.</p>
+            </div>
+    
+            <div class="box">
+                <p>Platinum is naturally <b>hypoallergenic</b> and perfect for those with sensitive skin.</p>
+            </div>
+    
+            <div class="box">
+                <p>Platinum holds diamonds and other gemstones more securely than other precious metals.</p>
+            </div>
+    
+            <div class="box">
+                <p>Platinum's durability allows jewellery to stand the test of time. Platinum pieces are perfect heirlooms to pass to future generations.</p>
+            </div>
+    
+            <div class="box">
+                <p>Over time, platinum takes on a satiny sheen known as patina. It's platinum's natural mark of authenticity and enduring value.</p>
+            </div>
+    
+            <div class="box">
+                <p>Platinum enhances the brilliance of diamonds, making them appear more radiant.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Which famous jeweller is credited with creating the first platinum jewellery?</h3>
+                <p>Louis Cartier</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Gemstones</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Precious stones at Tanishq</h3>
+                <ul>
+                    <li>Diamond</li>
+                    <li>Ruby</li>
+                    <li>Sapphire</li>
+                    <li>Emerald</li>
+                </ul>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Craftsmanship</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Nakashi</h3>
+                <ul>
+                    <li>Also called ____ jewellery.</li>
+                    <li>The traditional art of engraving or carving intricate designs on jewellery.</li>
+                    <li>Gives the jewellery an ____ embossed look.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Chillai</h3>
+                <p>It is a intricate engraving technique.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Partaj</h3>
+                <p>Engraving is done on the surface of the metal and the background is darkened to highlight the design.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Filigree</h3>
+                <ul>
+                    <li>Aslo called as Tarakashi, Taarkashi, Jaal ka Kaam, Jaali work and Wire work.</li>
+                    <li>Gold and Silver jewellery is created with fine ____ and delicate twisted wires to form unique motifs.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Filigree - Veni wire</h3>
+                <ul>
+                    <li>Jewellery is made with fine ____.</li>
+                    <li>Over 90 types of wires used.</li>
+                    <li>Very delicate and labor-intensive technique.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Filigree - Granulation</h3>
+                <ul>
+                    <li>This technique is most famous in Gujarat.</li>
+                    <li>Popularly called '____ Kaam' or 'Ras Rawa'.</li>
+                    <li>The surface of the jewellery is decorated with small spheres of gold, named granules, as per the design pattern.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Hollow Balls</h3>
+                <ul>
+                    <li>Hollow ____ ____ balls used as decoratiev element to the jewellery.</li>
+                    <li>Gives a high value look at a lighter ____.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Textured Sheet</h3>
+                <ul>
+                    <li>Patterns are imprinted on the surface of the gold ____.</li>
+                    <li>Texturing can be done using:
+                        <ul>
+                            <li>Engraving & Hammering</li>
+                            <li>Machine Tools</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Laser cutting</h3>
+                <ul>
+                    <li>A laser beam is used to create the designs on the gold surface by cutting them.</li>
+                    <li>It is a completely automated process.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Jadau</h3>
+                <ul>
+                    <li>A mould or ghat is crafted by the goldsmith from a drawing</li>
+                    <li>The engraver then carves out the areas for filling in ____</li>
+                    <li>The enameller then enamels the engraved parts</li>
+                    <li>The ghat is firmly fixed on a small wooden handle laden with lac and the ____ are set by the gem setter</li>
+                    <li>The gemstones are backed with reflective foil to maximize brilliance</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Stamping</h3>
+                <ul>
+                    <li>One of the earliest forms of jewellery - can be machine or hand made</li>
+                    <li>Involved stringing hand stamoed coins of high karatage with images of Gods and Goddesses to be worn as a necklace</li>
+                    <li>A kasu malai (Tamil: necklace of coins) or Putli Haar (Marathi: necklace of images) is the same concept</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Which karigari involves designing art forms on paper with pen?</h3>
+                <p>Nakashi</p>
+            </div>
+    
+            <div class="box">
+                <h3>Limitation of hand made jewellery technique?</h3>
+                <p>Higher making charges</p>
+            </div>
+    
+            <div class="box">
+                <h3>What is the process of depositing a thin layer of another metal on gold surface is called?</h3>
+                <p>Plating</p>
+            </div>
+    
+            <div class="box">
+                <h3>What is the additional making charge percentage for enamel and rhodium finish at Tanishq?</h3>
+                <p>0%</p>
+            </div>
+    
+            <div class="box">
+                <h3>Tanishq uses which metal for soldering?</h3>
+                <p>Indium</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Stone Settings</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Prong</h3>
+                <ul>
+                    <li>Usually with either 4 or 6 prongs are bent over the girdle of the gemstone or diamond.</li>
+                    <li>Prong set diamonds receives maximum exposure to light from top to bottom and maximizes its beauty.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Bezel</h3>
+                <ul>
+                    <li>A bezel is a thin metal strip that wraps around a gem to hold it in place.</li>
+                    <li>Strong and secure setting, avoids snagging on clothes, best for regular wear.</li>
+                    <li>Ideal setting for ____ stone as it look richer and darker in colour.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Channel</h3>
+                <ul>
+                    <li>Stones are suspended between two bars or strips of metal called channels.</li>
+                    <li>Most preferred settins for baguettes, princess cut and emerald cut as it offers more protection to the girdle.</li>
+                    <li>Stone damage is very less.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Pave</h3>
+                <ul>
+                    <li>(pah-VAY) setting is a modified version of prong setting.</li>
+                    <li>The diamonds set on the metal with the help of tiny beads, which are pulled up from the metal and pushed against the diamond.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Invisible</h3>
+                <ul>
+                    <li>One of the most difficult setting methods.</li>
+                    <li>The stones are positioned in such a manner that metal is not visible in between stones.</li>
+                    <li>Gives the appearance of an uninterrupted and continuous surface.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Flush</h3>
+                <ul>
+                    <li>The gems are set directly into the jewellery item.</li>
+                    <li>The top of the gem (the "table") in even with the surface of the metal.</li>
+                    <li>Besides being beautiful, the flush setting is very secure.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Pressure</h3>
+                <ul>
+                    <li>Small stones are set together in a cluster, the center stone is kept one level down than the other stones without any other prongs.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Nick</h3>
+                <ul>
+                    <li>The stone is set in a collet of reflective and brightly polished metal.</li>
+                    <li>Then the metal edges are cut or shaped, so that when bent around the stone, they create the illusion of being a part of the stone, enhances the apparent size of stone.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Napoli</h3>
+                <ul>
+                    <li>It is a channel setting.</li>
+                    <li>Same sized diamonds set with a prong in between.</li>
+                    <li>Creates an illusion of a single large stone.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Emero</h3>
+                <ul>
+                    <li>Small ____ and round/princess diamonds set together to create a ____ emerald cut diamond.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Tension</h3>
+                <ul>
+                    <li>The entire band of the ring acts as two large prongs to hold the stone in place, usually with small groves that fit around the stone's girdle.</li>
+                    <li>____ more light, offering more brilliance and sparkle.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Bouquet</h3>
+                <ul>
+                    <li>It is a ____ of one big diamond in the center surrounded by several (9-11) smaller diamonds on the side placed at an angle to create the look of a diamond table.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Composite</h3>
+                <ul>
+                    <li>It is a cluster setting with one big diamond in the center surrounded by several (9-12) diamonds on the side at the same level in pave setting (round head prongs).</li>
+                    <li>Smaller diamonds appears one big Diamond.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Bezel setting is ideal for ____ as it looks richer and darker due to the limitation of light entering and exiting the stone?</h3>
+                <p>Coloured Stones</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Encircle</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Tiers & Points Earning Slabs</h3>
+                <p>For every 1000/- rupees purchase customer will get points basis below table</p>
+                <table style="width:100%">
+                    <tr>
+                        <th style="width:20%">Tier</th>
+                        <th style="width:20%">Plain Jew</th>
+                        <th style="width:20%">Studded Jew</th>
+                        <th style="width:40%">Watches, Eyewear, etc</th>
+                    </tr>
+                    <tr>
+                        <td>Silver</td>
+                        <td>3</td>
+                        <td>6</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Gold</td>
+                        <td>5</td>
+                        <td>14</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Platinum</td>
+                        <td>7</td>
+                        <td>20</td>
+                        <td>30</td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="box">
+                <h3>Offers and Points</h3>
+                <p><b>Earn points during:</b></p>
+				<ul>
+					<li>Birthday / Anniversary</li>
+					<li>Titan / Tata Employee</li>
+					<li>Share holder</li>
+				</ul>
+				<p><b>Do not earn points during:</b></p>
+				<ul>
+					<li>Festival of Diamonds</li>
+					<li>Akshay Tritiya</li>
+					<li>Navratri, Diwali</li>
+					<li>Wedding Bundling</li>
+				</ul>
+				<p>Platinum tier customers will earn points even on discounted offer purchases.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Tier Upgrade & Downgrade</h3>
+                <table style="width:100%">
+                    <tr>
+                        <th>Tier</th>
+                        <th>Points Required</th>
+                    </tr>
+                    <tr>
+                        <td>Gold</td>
+                        <td>500 Points</td>
+                    </tr>
+                    <tr>
+                        <td>Platinum</td>
+                        <td>3000 Points</td>
+                    </tr>
+                </table>
+                <ul>
+                    <li>Upgrade/Downgrade will be based on cumulative points earned in a period of 24 months from the date of enrolment or last upgrade/ downgrade date.</li>
+                    <li>Discounted transactions will not be considered for tier upgrade & points earning</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Points Redemptions</h3>
+                <ul>
+                    <li>OTP is mandatory for all redemption value</li>
+                    <li>There is no minimum points required for redemption</li>
+                    <li>Store need not collect members photo id proof for point redemption since OTP is made mandatory for points redemption irrespective of any value</li>
+                </ul>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Hallmarking and HUID</summary>
+        <div class="content">
+    
+            <div class="box row2">
+                <h3>About Hallmarking</h3>
+                <ul>
+                    <li>Mandated by the BIS (Bureau of Indian Standards)</li>
+                    <li>Compulsory for Gold Jewellery, from June 2021 for all jewelers across India.</li>
+                    <li>Permitted in four categories: 24K, 22K, 18K and 14K gold products.</li>
+                    <li>Jewellery weight less than 2 grams is exempted from Hallmark.</li>
+                    <li>Kundan-Polki and Glass-Kundan Jewellery is also exempted, whereas in Tanishq all Glass-Kundan and Kundan-Polki Jewellery is Hallmarked.</li>
+                    <li>Authenticity of Hallmark can be checked at the 'BIS Care App' provided by the Bureau of Indian Standards.</li>
+                </ul>
+            </div>
+    
+            <div class="box row2">
+                <h3>Exemption of Hallmarking for Jewellery items below specified weights, effective from -  21st  November 2024.</h3>
+                <ul>
+                    <li>Single-Item Jewellery: Products with a single item under one barcode and gross weight below 1.950 grams. Example: Finger rings, pendants.</li>
+                    <li>Two-Item Jewellery: Products with two items under one barcode and gross weight below 3.500 grams. Example: Earrings, hoops.</li>
+                    <li>Multi-Item Jewellery: Products with more than two items under one barcode, even if their gross weight is below the above thresholds, must undergo mandatory Hallmarking. Example: Jewellery sets.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Three symbols</h3>
+                <ul>
+                    <li>The BIS logo (triangle shaped)</li>
+                    <li>The purity of gold (as 22K916, 18K750, 14K585)</li>
+                    <li>6-digit alpha-numeric code, also known as HUID number</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Exempted Categories</h3>
+                <ul>
+                    <li>Jewellery below 2gms</li>
+                    <li>Silver Platinum Jewellery</li>
+                    <li>Gold Thread, Plate, sheet, foil, rod, wire, strip, tube or coin have been exempted</li>
+                    <li>Some exemption to export Jewellery</li>
+                </ul>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Offers and Discounts</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Titan Shareholder's Discount</h3>
+                <table style="width:100%">
+                    <tr>
+                        <th>Group</th>
+                        <th>Discount</th>
+                    </tr>
+                    <tr>
+                        <td>Plain</td>
+                        <td>10% on MC</td>
+                    <tr>
+                    <tr>
+                        <td>Studded</td>
+                        <td>5% on UCP</td>
+                    <tr>
+                    <tr>
+                        <td>Solitaire</td>
+                        <td>3% on UCP</td>
+                    <tr>
+                </table>
+                <p><b>Important Points:</b></p>
+                <ul>
+                    <li>Shareholders must provide their discount coupon OR SMS received</li>
+                    <li>Validity check to be done</li>
+                    <li>Invoice must be raised in the name of those who are physically present at the store</li>
+                    <li>Cannot be clubbed with any other offer</li>
+                    <li>GH can be redeemed along with this offer</li>
+                    <li>Not applicable on Loose Solitaires, Gold Coins/bars and Silver Jew / Silver Coins</li>
+                    <li>No Encircle points shall be rewarded for purchases made through this offer</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Manual BDay / Ann Discounts</h3>
+                <p>Stores can use the BA manual headers <b>without obtaining the approval from CEE/ABMs</b> if the customer who places the order/advance within &#177;21 days BA period and product delivery is happening the post this eligible period.</p>
+				<p>The empowerment could be used only once in case of GRN.</p>
+            </div>
+    
+            <div class="box">
+                <h3>During GEP Offer, if customer is left with some amount, can we give coins or refund of that value?</h3>
+                <p>No</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>TEP</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>TEP Exchange & Refund</h3>
+                <table style="width:100%">
+                    <tr>
+                        <th rowspan="2">Category</th>
+                        <th colspan="2">Exchange</th>
+                        <th rowspan="2">Refund</th>
+                    </tr>
+                    <tr>
+                        <th>Gold</th>
+                        <th>Stone</th>
+                    </tr>
+                    <tr>
+                        <td style="width:30%">PJWS</td>
+                        <td style="width:20%">100%</td>
+                        <td style="width:20%">0%</td>
+                        <td style="width:30%">97% of TEP value</td>
+                    </tr>
+                    <tr>
+                        <td>P3 (Glass Kundan)</td>
+                        <td>100%</td>
+                        <td>100%</td>
+                        <td>97% of TEP value</td>
+                    </tr>
+                    <tr>
+                        <td>Kundan Polki</td>
+                        <td>100%</td>
+                        <td>90%</td>
+                        <td>90% of TEP value</td>
+                    </tr>
+                    <tr>
+                        <td>Diamond (invisible setting)</td>
+                        <td>100%</td>
+                        <td>75%</td>
+                        <td>90% of TEP value<br/>65% of stone</td>
+                    </tr>
+                    <tr>
+                        <td>Diamond (napoli setting)</td>
+                        <td>100%</td>
+                        <td>90%</td>
+                        <td>90% of TEP value</td>
+                    </tr>
+                    <tr>
+                        <td>Platinum Plain</td>
+                        <td>100%</td>
+                        <td>-</td>
+                        <td>97% of TEP value</td>
+                    </tr>
+                    <tr>
+                        <td>Platinum Studded</td>
+                        <td>100%</td>
+                        <td>100%</td>
+                        <td>90% of TEP value</td>
+                    </tr>
+                    <tr>
+                        <td>Solitaire</td>
+                        <td>100%</td>
+                        <td>100%</td>
+                        <td>85% of TEP value</td>
+                    </tr>
+                    <tr>
+                        <td>UCP Studded products</td>
+                        <td colspan="2">80% of UCP value</td>
+                        <td>70% of UCP value</td>
+                    </tr>
+                    <tr>
+                        <td>UCP Plain products</td>
+                        <td colspan="2">33% of UCP value</td>
+                        <td>30% of UCP value</td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="box">
+                <h3>TEP - Solitaire 2carat+</h3>
+                <table style="width:100%">
+                    <tr>
+                        <th style="width:55%">Condition</th>
+                        <th style="width:15%">Below<br/>2 Ct</th>
+                        <th style="width:15%">2 - 5 Ct</th>
+                        <th style="width:15%">5Ct+</th>
+                    </tr>
+                    <tr>
+                        <td>Exchange against diamond jewellery, solitaires</td>
+                        <td>100%</td>
+                        <td>85%</td>
+                        <td rowspan="3">No TEP</td>
+                    </tr>
+                    <tr>
+                        <td>Exchange against plain gold, plain platinum jewellery or coins</td>
+                        <td>90%</td>
+                        <td>75%</td>
+                    </tr>
+                    <tr>
+                        <td>Cash Refund</td>
+                        <td>85%</td>
+                        <td>70%</td>
+                    </tr>
+                </table>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Operations</summary>
+        <div class="content">
+    
+            <div class="box row4">
+                <h3>I Am Tanishq 4.0</h3>
+                <table style="width:100%">
+                    <tr>
+                        <th style="width:20%">Overall Score</th>
+                        <th style="width:50%">Metrics</th>
+                        <th>Wgt</th>
+                        <th>Total Wgt</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">GH + RGA</td>
+                        <td>GH & RGA E2B</td>
+                        <td>12%</td>
+                        <td rowspan="3">30%</td>
+                    </tr>
+                    <tr>
+                        <td>A/c Management<br/>(on-time payments)</td>
+                        <td>8%</td>
+                    </tr>
+                    <tr>
+                        <td>Refunds Score</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Customer Experience</td>
+                        <td>NPS Detractors + Complaints</td>
+                        <td>15%</td>
+                        <td rowspan="2">30%</td>
+                    </tr>
+                    <tr>
+                        <td>Mystery Audit</td>
+                        <td>15%</td>
+                    </tr>
+                    <tr>
+                        <td>Quality of Manpower</td>
+                        <td>Capability Index</td>
+                        <td>10%</td>
+                        <td>10%</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Efficiency Metrics</td>
+                        <td>Building Block & WRAP Adherence</td>
+                        <td>10%</td>
+                        <td rowspan="2">30%</td>
+                    </tr>
+                    <tr>
+                        <td>TOR Score (Based on BB Performance)</td>
+                        <td>20%</td>
+                    </tr>
+                </table>
+                <table style="width:100%">
+                    <tr>
+                        <th colspan="5">Scoring Criteria</th>
+                    </tr>
+                    <tr>
+                        <th style="width:20%"><50%</th>
+                        <th style="width:20%">50%</th>
+                        <th style="width:20%">69.5%</th>
+                        <th style="width:20%">79.5%</th>
+                        <th style="width:20%">89.5%+</th>
+                    </tr>
+                    <tr>
+                        <td>&#9733;</td>
+                        <td>&#9733;&#9733;</td>
+                        <td>&#9733;&#9733;&#9733;</td>
+                        <td>&#9733;&#9733;&#9733;&#9733;</td>
+                        <td>&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+                    </tr>
+                </table>
+                <p><b>Qualifying Criteria:</b></p>
+                <ul>
+                    <li>Minimum 4 Action Plans (TOR WRAP)</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Tanishq Operating Rhythm - TOR</h3>
+                <p><b>10 Building Blocks:</b></p>
+				<ul>
+                    <li>Advance Order</li>
+                    <li>Customer Order</li>
+                    <li>GHS 13</li>
+                    <li>GHS 12</li>
+                    <li>GHS 11</li>
+                    <li>Anniversary</li>
+                    <li>Birthday</li>
+                    <li>Purple</li>
+                    <li>Dormant</li>
+                    <li>Exchange/Service (New)</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>CX Dashboard</h3>
+                <ul>
+                    <li>NPS</li>
+                    <li>Google Review</li>
+                    <li>Purple</li>
+                    <li>Birthday/Anniversary</li>
+                    <li>TWOL</li>
+                    <li>E2W</li>
+                    <li>BB - Building Block</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>NPS Indicators</h3>
+                <p>NPS = Net Promoter Score</p>
+				<table style="width:100%">
+                    <tr>
+                        <th style="width:32%">Detractor</th>
+                        <th style="width:34%">Passive</th>
+                        <th style="width:34%">Promoter</th>
+                    </tr>
+                    <tr>
+                        <td>0 - 6</td>
+                        <td>7 - 8</td>
+                        <td>9 - 10</td>
+                    </tr>
+                    <tr>
+                        <td>Dissatisfied</td>
+                        <td>Partially satisfied</td>
+                        <td>Fully satisfied</td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="box">
+                <h3>VM Zones and lights used</h3>
+                <p>Wedding - 3K</p>
+				<p>Dailywear - 4K</p>
+				<p>High Value - 5K</p>
+            </div>
+    
+            <div class="box">
+                <h3>To improve an underperforming building block, what steps could be done to achieve satisfactory results?</h3>
+                <p>Defining clear goals & Using WRAP</p>
+            </div>
+    
+            <div class="box">
+                <h3>RSO who has power to conduct feasibility check and approve major modification at boutique level is called?</h3>
+                <p>MTO Champ</p>
+            </div>
+    
+            <div class="box">
+                <h3>Which category does the Trousseau display particularly important for?</h3>
+                <p>Wedding</p>
+            </div>
+    
+            <div class="box">
+                <h3>Continuous improvements are referred to by the term?</h3>
+                <p>Kaizen</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Commercial</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>GSTIN Explained</h3>
+                <p>Sample : 22AAAAA0000A1Z5</p>
+				<table style="width:100%">
+					<tr>
+						<th>Digits</th>
+						<th>Representation</th>
+						<th>Sample</th>
+					</tr>
+					<tr>
+						<td>1st & 2nd</td>
+						<td>State Code</td>
+						<td>22</td>
+					</tr>
+					<tr>
+						<td>3rd to 12th</td>
+						<td>PAN Number</td>
+						<td>AAAAA0000A</td>
+					</tr>
+					<tr>
+						<td>13th</td>
+						<td>Entity Number of the same PAN holder in a state</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>14th</td>
+						<td>Alphabet 'Z' by default</td>
+						<td>Z</td>
+					</tr>
+					<tr>
+						<td>15th</td>
+						<td>Check sum digit</td>
+						<td>5</td>
+					</tr>
+				</table>
+            </div>
+    
+            <div class="box">
+                <h3>Creditnote Priority</h3>
+                <p>If more than 1 CN is used in payment, Amount will be used in the following order based on priority of CN Type.</p>
+				<ul>
+					<li>GEP</li>
+					<li>GHS</li>
+					<li>Advance</li>
+					<li>TEP</li>
+					<li>CNIntBTQ</li>
+					<li>eVoucher</li>
+					<li>GRN</li>
+					<li>BillCancellation</li>
+					<li>DigiGoldTanishq</li>
+					<li>DigiGoldNonTanishq</li>
+				</ul>
+            </div>
+    
+            <div class="box">
+                <h3>KYC Requirement for Card Transactions</h3>
+                <p><b>Domestic Cards - Threshold Limit:</b></p>
+				<ul>
+					<li>Self: &#8377;1 lac</li>
+					<li>3rd Party: &#8377;50K</li>
+					<li>The card holder to be present in store</li>
+				</ul>
+				<p><b>International Cards - Threshold Limit:</b></p>
+				<ul>
+					<li>&#8377;1 lac without availing the ITVF (Innovation and Technology Venture Fund)</li>
+					<li>Any one of the ID Cards
+						<ul>
+							<li>Passport</li>
+							<li>Green Card</li>
+							<li>International Driving License</li>
+							<li>OCI (Overseas Citizen of India)</li>
+							<li>Social Security</li>
+						</ul>
+					</li>
+				</ul>
+            </div>
+    
+            <div class="box">
+                <h3>Transaction authorization to 3rd Party</h3>
+                <p>Acceptable only due to age factor or medical issue</p>
+				<ul>
+					<li>Authorization Letter and valid ID proof from customer via email to BTQ ID with specific reason</li>
+					<li>Acceptable payment methods - Card, RTGS, NetBanking, and GEP</li>
+					<li>TEP and Cash payments are not permitted</li>
+				</ul>
+            </div>
+    
+            <div class="box">
+                <h3>Airpay Link Based Payment</h3>
+                <ul>
+                    <li>Link sent to customer's whatsapp through Airpay</li>
+                    <li>Payment can be done between &#8377;1 lac and &#8377;5 lacs via Debit / Credit cards</li>
+                    <li>Forwarding the link to others from customers Whatsapp is restricted</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>After resizing, is there a possibility of GRN?</h3>
+                <p>No</p>
+            </div>
+    
+            <div class="box">
+                <h3>Bank Details & validation via - Penny drop</h3>
+                <p>Customer's bank account is verified through Penny Drop Process, by crediting &#8377;1/-.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Stop Payment Automation</h3>
+                <p>Store shall raise the stop payment request in GHS portal directly which shall be processed by bank automatically.</p>
+            </div>
+    
+            <div class="box">
+                <h3>GHS Instant Refund</h3>
+                <p>GHs refund <b>upto &#8377;5 lacs</b> shall now be processed within same day.</p>
+            </div>
+    
+            <div class="box">
+                <h3>GHS Discount Estimate Report</h3>
+                <p>Now available in eGHS reports portal.</p>
+            </div>
+    
+            <div class="box">
+                <h3>KYC for GHS/RGA re-enrollments</h3>
+                <p>Can be re-used after taking customer's consent.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Product Delivery to 3rd Party</h3>
+                <p>Customers can now authorize their family members to collect their advance booking & ordered products.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Standing Instructions (SI) - GHS</h3>
+                <ul>
+                    <li>Customers can register for SI for upto &#8377;15000/- per installment in GHS website</li>
+                    <li>Can cancel the auto debit facility via the <b>Cancel Auto Debit (SI)</b> option in GHS website or in GH Store login</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>DCC - International Card Transactions</h3>
+                <p>The International cardholders can choose making payment through <b>Home Currency or INR</b> with marginal fixed charges to mitigate the risk of currency rate fluctuation.</p>
+            </div>
+    
+            <div class="box">
+                <h3>CNs Printing - TEP/GEP/GRN</h3>
+                <p>Stores should not take prints of credit notes if the credit notes are getting redeemed on the same day in the cash memo transactions.</p>
+            </div>
+    
+            <div class="box">
+                <h3>What is TCS and how it works?</h3>
+                <p>TCS is 'Tax Collected at Source'. If an individual customer sales turnover exceeding more than 50 lakhs from one particular seller, then the particular customer has to pay TCS for the excess amount.</p>
+				<p>TCS is 0.1% of the transaction amount.</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Digigold</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>About Digigold</h3>
+                <ul>
+                    <li>Trusted and transparent method of investing 24kt pure gold</li>
+                    <li>Offered by Digital Gold India Private Limited (“DGIPL”)</li>
+                    <li>Trust of Tata and powered by Safegold</li>
+                    <li>SafeGold is a product of DGIPL- an institutionally owned company, where the World Gold Council is a minority investor (through World Gold Council (India) Pvt. Ltd.).</li>
+                    <li>Start with as low as Rs.100/-</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Exchange/Redeem</h3>
+                <p><b>Online:</b></p>
+				<ul>
+					<li>On payment page, choose Digigold payment option and enter amount</li>
+				</ul>
+				<p><b>Tanishq Store:</b></p>
+				<ul>
+					<li>Click on Tanishq Digigold</li>
+					<li>Fetch Balance in Digi Gold Redemption screen</li>
+					<li>Enter the amount you want to redeem - Tanishq Digital or Other Safe Gold Balance</li>
+					<li>Click on Add to Payment</li>
+					<li>Enter the OTP and then click on Verify OTP</li>
+					<li>Click on Submit</li>
+				</ul>
+            </div>
+    
+            <div class="box">
+                <h3>Which Goldrate is applicable?</h3>
+                <p><b>Retail Stores:</b></p>
+				<ul>
+					<li>Tanishq Digital Gold or SafeGold balance which is converted to value based on the prevailing <b>SafeGold Sell rate</b> (“Redemption Value”)</li>
+					<li>Value of the jewellery is calculated based on the <b>Store Gold rate</b></li>
+				</ul>
+				<p><b>Online:</b></p>
+				<ul>
+					<li>Tanishq Digital Gold or SafeGold balance which is converted to value based on the prevailing <b>SafeGold Sell rate</b> (“Redemption Value”)</li>
+					<li>Value of the jewellery is calculated based on the <b>Tanishq/CaratLane website Gold rate</b></li>
+				</ul>
+            </div>
+    
+            <div class="box">
+                <h3>Buy</h3>
+                <ul>
+                    <li>Complete eKYC</li>
+                    <li>Enter amount in rupees or gold in grams</li>
+                    <li>Payment methods: account, card, wallet</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Sell</h3>
+                <ul>
+                    <li>Enter amount in rupees or gold in grams</li>
+                    <li>Fill bank details</li>
+                    <li>Bank account verfication process</li>
+                    <li>Sold amount credited within 2-3 working days</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Discount on Redemption</h3>
+                <ul>
+                    <li>Tanishq Digital Gold - 3% on redemption value</li>
+                    <li>Other SafeGold - no discounts</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Important Points</h3>
+                <ul>
+                    <li>System will not allow to redeem the Digi Gold Balance more than the invoice value.</li>
+                    <li>At the time of bill cancellation - Cancel with return is not allowed</li>
+                    <li>At the time of bill cancellation - separate credit notes will generated for DigiGold Redemption</li>
+                    <li>At the time of GRN for single product, single credit note will be generated for all the payments and the credit note will have the DigiGoldTanishq discount.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Why is there a difference between SafeGold Rate and Tanishq rate?</h3>
+                <p>The Gold Rate in SafeGold is the price of Raw Gold that is being traded in the commodity markets which is influenced by various macroeconomic factors including global commodity pricing and Rupee valuation against USD. This Gold rate is not the selling gold rate of a finished product. There are operational costs involved even after raw gold is purchased from the market to convert the gold for amenability to make jewellery and these processing costs are why the Gold Rate of all jewelers (not just Tanishq) differs from the commodity rates. In addition, the SafeGold rate varies based on the time of the day, as there are intra-day price movements in the commodity market as well.</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Gifting Transactions</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Gifting: wedding / other occasions</h3>
+                <p><b>Scenario: </b>Customer buying for gifting, wants invoice to be made in the name of the person receiving the gift, who is not present in store.</p>
+				<p><b>Key Conditions / Documents required:</b></p>
+				<ul>
+					<li>Either Gifter or Giftee must be an Encircle member</li>
+					<li>Authorization letter from Giftee mentioning the consent (Email / Written)</li>
+					<li>Valid ID proofs of both Gifter and Giftee</li>
+				</ul>
+				<p><b>Payment Mode: </b></p>
+				<ul>
+					<li>Permitted: Card, RTGS, NetBanking, GV, GiftCards, GEP</li>
+					<li>Not permitted: TEP, Cash</li>
+				</ul>
+            </div>
+    
+            <div class="box">
+                <h3>Gifting: wedding / other occasions</h3>
+                <p><b>Scenario: </b>Gifter makes the payement and authorizes the billing on family member's name present at store.</p>
+				<p><b>Key Conditions / Documents required:</b></p>
+				<ul>
+					<li>Either Gifter or Giftee must be an Encircle member</li>
+					<li>Authorization letter from Giftee mentioning the consent (Email / Written)</li>
+					<li>Valid ID proofs of both Gifter and Giftee</li>
+				</ul>
+				<p><b>Payment Mode:</b></p>
+				<ul>
+					<li>Permitted: Card, RTGS, NetBanking, GV, GiftCards, GEP</li>
+					<li>Not permitted: TEP, Cash</li>
+				</ul>
+            </div>
+    
+            <div class="box">
+                <h3>Gifting: GRN (Value &#8804; 2 Lacs)</h3>
+                <p><b>Scenario:</b> A person visits the store to do GRN of the gifted product and purchase a new product against the GRN value.</p>
+				<p><b>Key Conditions / Documents required:</b></p>
+				<ul>
+					<li>New invoice should be in the name of the individual to whom the original product was billed</li>
+					<li>New purchase value &#8804; 2 Lacs</li>
+				</ul>
+				<p><b>Payment Mode:</b></p>
+				<ul>
+					<li>Permitted: Card, RTGS, NetBanking, GV, GiftCards, GEP, Cash &#8804; 50K</li>
+					<li>Not permitted: TEP, Cash &gt; 50K</li>
+				</ul>
+            </div>
+    
+            <div class="box">
+                <h3>Gifting: GRN (Value &gt; 2 Lacs)</h3>
+                <p><b>Scenario: </b>A person visits the store to do GRN of the gifted product and purchase a new product against the GRN value.</p>
+				<p><b>Key Conditions / Documents required:</b></p>
+				<ul>
+					<li>New invoice should be in the name of the individual to whom the original product was billed</li>
+					<li>Authorization letter from Giftee mentioning the consent <b>(Email only)</b></li>
+				</ul>
+				<p><b>Payment Mode:</b></p>
+				<ul>
+					<li>Permitted: Card, RTGS, NetBanking, GV, GiftCards, GEP, Cash &#8804; 50K</li>
+					<li>Not permitted: TEP, Cash &gt; 50K</li>
+				</ul>
+            </div>
+    
+            <div class="box">
+                <h3>Non-Gifting:  Taking delivery against Booking/Order by an authorized person</h3>
+                <p><b>Scenario: </b>Customer couldn't visit the store to collect the product booked through advance booking/customer order.</p>
+				<p><b>Key Conditions / Documents required:</b></p>
+				<ul>
+					<li><b>Only family members</b> can be authorized</li>
+					<li>Authorization letter from Giftee mentioning the consent <b>(Email only)</b></li>
+					<li>If there is any balance payment to be made, the customer must specify the mode of payment and the individual responsible for making that payment in the consent letter</li>
+					<li>Self attested valid ID proofs of both the customer's and the authorized family member's</li>
+					<li>Advance Booking/Customer Order copy</li>
+				</ul>
+				<p><b>Payment Mode:</b></p>
+				<ul>
+					<li>Permitted: Card, RTGS, NetBanking, GV, GiftCards, GEP</li>
+					<li>Not permitted: TEP, Cash</li>
+				</ul>
+            </div>
+    
+            <div class="box">
+                <h3>Non-Gifting: &gt; Aged 60 years</h3>
+                <p><b>Scenario: </b>The customer is unable to visit the store and wishes to authorize a family member to perform the transaction on their behalf.</p>
+				<p><b>Key Conditions / Documents required:</b></p>
+				<ul>
+					<li><b>Only family members</b> can be authorized</li>
+					<li>Consent form should contain specific reason for not visiting store, consent to bill in customer's name and take delivery of products</li>
+					<li>Self attested valid ID proofs of both the customer's and the authorized family member's</li>
+					<li>Self attested PAN Card in case transaction &gt; 2 lacs</li>
+				</ul>
+				<p><b>Payment Mode:</b></p>
+				<ul>
+					<li>Permitted: Card, RTGS, NetBanking, GV, GiftCards, GEP</li>
+					<li>Not permitted: TEP, Cash</li>
+				</ul>
+            </div>
+    
+            <div class="box">
+                <h3>Non-Gifting: Medical reasons</h3>
+                <p><b>Scenario: </b>The customer is unable to visit the store and wishes to authorize a family member to perform the transaction on their behalf.</p>
+				<p><b>Key Conditions / Documents required:</b></p>
+				<ul>
+					<li><b>Only family members</b> can be authorized</li>
+					<li>Consent form should contain specific reason for not visiting store, consent to bill in customer's name and take delivery of products</li>
+					<li>Self attested valid ID proofs of both the customer's and the authorized family member's</li>
+					<li>Self attested PAN Card in case transaction &gt; 2 lacs</li>
+				</ul>
+				<p><b>Payment Mode:</b></p>
+				<ul>
+					<li>Permitted: Card, RTGS, NetBanking, GV, GiftCards, GEP</li>
+					<li>Not permitted: TEP, Cash</li>
+				</ul>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Rivaah Golden Advantage</summary>
+        <div class="content">
+    
+            <div class="box row3">
+                <h3>Can a customer enroll into RGA via E-Mail consent?</h3>
+                <p>RGA enrolment can be done via E-Mail consent only by existing customers whose KYC is already verified by the company.</p>
+                <ul>
+                    <li>As per customer's request, the store shall send mail from Store Mail ID the brochure soft copy & plan details + T&Cs</li>
+                    <li>Customer can then send a reply to the mail from his mail ID with the consent as follows: “I am interested to enrolling in the RGA scheme with enrollment amount of Rs........./- per month and I acknowledge that I have read and do hereby accept the terms and conditions of RGA scheme.”</li>
+                    <li>Along with the mail, customer also needs to send his/her Valid ID Proof & PAN Card in case of enrolment amount greater than Rs.18,000/-</li>
+                    <li>Then store shall send the Airpay / Razorpay link to the customer. Stores can share the virtual RTGS as well.</li>
+                    <li>For each email-based enrollment store has to capture in the remarks field "Email-based enrollment“ in GHS Portal.</li>
+                    <li>OTP is mandatory for RGA Scheme enrollment through this process.</li>
+                    <li>It's mandatory to create the RGA on the same day in the system with the original payment mode used by the customer , and the same day the details shall be updated in the Shared-Form , and ABM's are responsible for 100% compliance w.r.t. the remote RGA account opening.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>How many RGA accounts can be clubbed together & who are allowed to club?</h3>
+                <p>A maximum of 5-RGA accounts can be clubbed together. Clubbing is possible for multiple accounts opened by same customer or by Husband-Wife-Children. Clubbing can be done with different Tiers also (Accordingly MC/UCP benefit to be given based on Credit Note Value). No other clubbing is allowed.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Can customers pre-mature/redeem their RGA accounts before 6-Months?</h3>
+                <p>Yes, he/she can purchase any jewellery for minimum grammage/value of RGA Credit note. Customer will get only Gold rate benefit & no RGA benefit will be given. Any ongoing offer can be given.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Can customers get refund of the RGA amount if they want to withdraw?</h3>
+                <p>RGA does not allow any refund of cash. Customers has to mandatorily purchase any jewellery (NOT GOLD COIN) for the grammage accumulated - Plain /value accumulated - Studded.</p>
+            </div>
+    
+            <div class="box">
+                <h3>If the customer has tried to make RGA instalment payment on last day of the grace period but failed and instalment gets lapsed. What should we do?</h3>
+                <p>Send a mail to srinivasra@titan.co.in & rashmim@titan.co.in with screenshot of Payment made proof or Bank statement. Payment option will be enabled once again for the customer to make the missed instalment payment.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Can customers purchase both Studded & Plain products in a single RGA redemption?</h3>
+                <p>Yes. Please make use of RGA Calculator Advanced V3.0 to merge both Studded & Plain products in single RGA redemption.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Can customers make their RGA instalment payments through ACH or Cheque?</h3>
+                <p>ACH & cheque payments are not allowed for RGA.</p>
+            </div>
+    
+            <div class="box">
+                <h3>How will the RGA discount for Plain Gold group/CS & Studded Group (GS, HVS, Solitaire) be calculated?</h3>
+                <p><b>Plain Gold group, Colourstone, Platinum Bi-Metal(Plain):</b><br/>MC Discount on the RGA Credit Note value generated on the day of redemption. Customer needs to purchase minimum grammage accumulated to redeem the RGA account.</p>
+                <p><b>Studded Group(GS, HVS, Solitaire, Platinum Bi-Metal(Studded)):</b><br/>UCP discount on the RGA Credit note value generated on the day of redemption.</p>
+            </div>
+    
+            <div class="box">
+                <h3>If customer is redeeming RGA Account and purchasing Studded product. But customer is getting better UCP discount in ongoing offer than RGA benefit. What should I do?</h3>
+                <p><b>Studded purchase:</b>
+                    <ul>
+                        <li>Ongoing offer discount can be given to the entire purchase value including RGA accumulated value.</li>
+                        <li>Send a mail to srinivasra@titan.co.in & rashmim@titan.co.in for approval and once approved proceed with the billing</li>
+                    </ul>
+                </p>
+                <p><b>Plain group & Colourstone:</b><br/>RGA benefit needs to be passed on as usual.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Can customers place Customer orders/MTO via RGA?</h3>
+                <p>We should try our best to sell the product available in store or use IBT/Endless Aisle to ensure immediate RGA redemption happens. In cases, where customers insists on placing MTO, then it should be done carefully in the 8th or 9th month itself by collecting 25% advance amount for placing MTO and that 25% amount will be considered as upsell and not be deducted from RGA plan amount. Any MTO order placement on 10th month is strictly not allowed.</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Enchanted Trails</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Inspiration: Sundarbans</h3>
+                <ul>
+                    <li>Largest mangrove forest in the world</li>
+                    <li>Situated on the delta of Ganges, Brahmaputra and Meghna rivers in the Bay of Bengal</li>
+                    <li>Area: 10277 square kilometers</li>
+                    <li>More than 800 species of animals and birds</li>
+                    <li>Recognized as a UNESCO World Heritage Site</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Design directions:- Two</h3>
+                <p><b>Praan</b> - The Heartbeat of Sundarbans</p>
+                <ul>
+                    <li>Majestic birds</li>
+                    <li>Stripes of Royal Bengal Tiger</li>
+                    <li>Details of the Crocodile Skin</li>
+                    <li>Colourful wings of the Honey Buzzard (bird)</li>
+                </ul>
+                <p><b>Prakriti</b> - The Mysterious Delta Land</p>
+                <ul>
+                    <li>Aerial view of Sundarbans</li>
+                    <li>Interconnecting mangrove roots</li>
+                    <li>Beautiful Palm leaves</li>
+                    <li>Beauty of rivers</li>
+                    <li>Reflections and shadows in the water</li>
+                    <li>Structured pathways</li>
+                    <li>Sundari flowers</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Materials Used</h3>
+                <ul>
+                    <li>Gold - 18KT Yellow & Rose Gold</li>
+                    <li>Diamond Color and Clarity - SI2 & GH</li>
+                    <li>Malachite - Signature element of this entire collection</li>
+                    <li>Natural Gemstones - Blue Sapphire, Citrine, Tsavorite, Tourmaline, Champagne diamonds</li>
+                    <li>Statement Inspired Gemstones - Tanzanite inspired gemstone, Emerald inspired gemstone, Paraiba inspired gemstone</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Signature Elements</h3>
+                <ul>
+                    <li>Malachite drop - represents ariel view of Sundarbans</li>
+                    <li>Royal Bengal Tiger face jali cut out work with diamonds in the eyes at the back of jewellery</li>
+                    <li>Sundari flower jali work incorporated in tiny places</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>The Styling</h3>
+                <ul>
+                    <li>Engagements</li>
+                    <li>Wedding Receptions</li>
+                    <li>Suitable for Western wear</li>
+                    <li>Suitable for Contemporary Indian wear</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Price range</h3>
+                <p>12 - 35 lacs</p>
+            </div>
+    
+            <div class="box">
+                <h3>Themecode</h3>
+                <p>O4SS</p>
+            </div>
+    
+            <div class="box">
+                <h3>Enchanted Trials partnershiped with which designer at Paris Haute Couture Week 2024?</h3>
+                <p>Vaishali Shadangule</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Spotlight Edit</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>USP of "The Spotlight Edit"</h3>
+                <ul>
+                    <li>Versatile Designs- Used for multiple Occasions.</li>
+                    <li>Time crafted jewellery</li>
+                    <li>Rare, real & responsibly sourced Diamonds</li>
+                    <li>Exquisite craftsmanship</li>
+                    <li>Elegant and sophisticated designed</li>
+                    <li>Statement pieces for events</li>
+                    <li>Spread-out diamond look- Light on pocket</li>
+                </ul>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Navraani</summary>
+        <div class="content">
+    
+            <div class="box row5">
+                <h3>Design directions - Three</h3>
+                <p><b>Queen as a Protector</b></p>
+                <ul>
+                    <li>Decorated Shield</li>
+                    <li>Sword</li>
+                    <li>Victory Tilak</li>
+                    <li>Royal Darbar</li>
+                    <li>Chainmail Armor</li>
+                    <li>Majestic Throne</li>
+                    <li>Royal Mirror</li>
+                    <li>The Kalgi</li>
+                    <li>Queen's Royal Jewels</li>
+                    <li>Walls of the Majestic Fort</li>
+                    <li>Layered Palace Ceilings</li>
+                    <li>Arched Doorways</li>
+                    <li>Queen's Garden</li>
+                    <li>Regal Peacock</li>
+                </ul>
+                <p><b>Queen as a Nurturer</b></p>
+                <ul>
+                    <li>Reflection of a Palace</li>
+                    <li>Palace Interiors</li>
+                    <li>Auspicious Temple Bells</li>
+                    <li>Kalgi of a Queen</li>
+                </ul>
+                <p><b>Queen's Elegance</b></p>
+                <ul>
+                    <li>Queen's Royal Throne</li>
+                    <li>Pearl Carpet of Baroda Palace</li>
+                    <li>Chandeliers in the Palace</li>
+                    <li>Palace Arches</li>
+                    <li>Palace Windows & Arches</li>
+                    <li>Ornate Kalgi</li>
+                    <li>The Wall Carvings</li>
+                    <li>A Decorative Mirror</li>
+                    <li>A Delicate Crown</li>
+                    <li>International Style Sense & Free Spirit</li>
+                    <li>Queen's Creative Free Spirit</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Signature Motifs</h3>
+                <p>Large gemstones have back jaalis with laser-cut Sanskrit words - can be customized</p>
+            </div>
+    
+            <div class="box">
+                <h3>Unique accessories</h3>
+                <p>Six complementary colors with pearls, glass beads, and fine tassel patterns</p>
+            </div>
+    
+            <div class="box">
+                <h3>New enamel Techniques</h3>
+                <ul>
+                    <li>Qajar Meenakari - Glass and painting enamel on partaj surface</li>
+                    <li>Mirror finish glass enamel on chhillai backdrop</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Gold Techniques</h3>
+                <ul>
+                    <li>Casted stamps</li>
+                    <li>Fin jaalis</li>
+                    <li>Ras Rawa, Chandak and Wire work</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Kundan Techniques</h3>
+                <ul>
+                    <li>Flushed Kundan - Kundan pushed into the gold</li>
+                    <li>Kundan with chhillai work</li>
+                    <li>Coloured Kundan with Ombre effect</li>
+                    <li>Designed Kundan in badroom</li>
+                    <li>Kundan Inlay on stone</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Superior Material Usage</h3>
+                <ul>
+                    <li>Moissanite - faceted glass kundan with 10x brilliance</li>
+                    <li>22KT for most products and 18KT, yellow gold for Moissanite designs</li>
+                    <li>Melon (Kharbooja) beads, Carved stones, Crystal drops, Green glass beads</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Modularity</h3>
+                <ul>
+                    <li>One side has a rose-shaped ruby; the other features pink enamel</li>
+                    <li>Gulubandh with detachable pendant - Can be worn separately</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Weight ranges</h3>
+                <ul>
+                    <li>Earrings start at 9 grams</li>
+                    <li>Pendants start at 28.5 grams</li>
+                    <li>Neckwear sets start at 41 grams</li>
+                    <li>Medium-weight sets : 60-100 grams</li>
+                    <li>Showstopper pieces: 120 grams</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Price range</h3>
+                <p>2 - 10 lacs</p>
+            </div>
+    
+            <div class="box">
+                <h3>Theme Codes</h3>
+                <ul>
+                    <li>O4MR</li>
+                    <li>OXMR</li>
+                </ul>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Unbound</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Tagline</h3>
+                <p>My World, My Story, My Essence</p>
+                <p>Celebration of a woman's free spirit</p>
+            </div>
+    
+            <div class="box">
+                <h3>The Inspiration</h3>
+                <ul>
+                    <li>A tribute to the Tanishq Woman who is the oasis of her world.</li>
+                    <li>She is an oasis, the center of the family and the people around her.</li>
+                    <li>Free forms of an oasis and the sand dunes that gracefully surround it and form a stunning pattern.</li>
+                    <li>Diamond jewellery has a special place in her unique world.</li>
+                    <li>She sees it as an expression of herself, she takes ownership of it and is proud of it.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Speciality</h3>
+                <ul>
+                    <li>Each design in this collection reflects the individuality of a Tanishq Woman - <b>Fluid, Unique and Sparkling.</b></li>
+                    <li>3D formations showcase the concept of fluidity & organic movement, leading to a central focal point that acts as an oasis.</li>
+                </ul>
+            </div>
+    
+            <div class="box row2">
+                <h3>Craftmanship USPs</h3>
+                <p><b>3D Modulation</b></p>
+                <ul>
+                    <li>Dome shapes, concave shapes, and spirals crafted using 3D modulation, give an organic feel to the designs and highlight the diamonds.</li>
+                </ul>
+                <p><b>Two-tone Look</b></p>
+                <ul>
+                    <li>18kt yellow gold represents the sand dunes.</li>
+                    <li>White look achieved using 18kt gold with rhodium plating to give a modern touch</li>
+                </ul>
+                <p><b>Miracle Plates / Illusion Setting</b></p>
+                <ul>
+                    <li>Miracle (nick) plates create a look that is 3X bigger by extending the facets of the diamond.</li>
+                </ul>
+                <p><b>Designs with a wide spread</b></p>
+                <ul>
+                    <li>Use of space ensures a statement look at a competitive diamond weight.</li>
+                    <li>Statement danglets can be worn with the neckpiece or styled as standalone pieces.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Collection Offerings</h3>
+                <ul>
+                    <li>New, contemporary, mid-premium, diamond collection.</li>
+                    <li>For first time buyers, upgrading existing buyers and gifting.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Customer Need & Styling</h3>
+                <ul>
+                    <li>Suitable for contemporary Indian wear & occasion wear.</li>
+                    <li>Suitable for party wear.</li>
+                    <li>Suitable for formal work wear.</li>
+                    <li>Suitable for elegant casual wear.</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Materials used</h3>
+                <ul>
+                    <li>18kt yellow gold</li>
+                    <li>18kt gold with rhodium plating</li>
+                    <li>Diamond: I1, I2 or SI2 and GH colour</li>
+                </ul>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Soulmate Pair Rings 2.0</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>Who is a Soulmate?</h3>
+                <ul>
+                    <li>Two people who share a strong connection</li>
+                    <li>Created specially for each other</li>
+                    <li>Sharing a single heartbeat! - A relationship that continues even after a lifetime!</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Highlights</h3>
+                <ul>
+                    <li>Introduced under Tanishq Engagements</li>
+                    <li>Two diamonds carved out of one natural diamond rough</li>
+                    <li>Representing a strong connection between the two</li>
+                    <li>Certificate of Authenticity (COA) made for each pair</li>
+                    <li>COA shows the rough diamond along with the planning image of diamond cut from it</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>WBQ parameters used</h3>
+                <ul>
+                    <li>Strong setting grip of diamonds through separately fixed press route collets</li>
+                    <li>The diamond is raised for higher visibility</li>
+                    <li>Claw progs that are evenly rounded and consistent in size and shape secures the diamond</li>
+                    <li>Improve the visibility and provide higher security to the diamond</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Diamonds used</h3>
+                <ul>
+                    <li>Size: 8 - 49 cents</li>
+                    <li>SI1 - D, E, F, G, H, J, K</li>
+                    <li>SI2 - E, F, G, H, J, K</li>
+                    <li>VS1 - E, F, G, H</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Customer Profile</h3>
+                <ul>
+                    <li>Engagements</li>
+                    <li>Proposals</li>
+                    <li>Anniversary Upgrades</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>More details</h3>
+                <ul>
+                    <li>Total 17 pairs of finger rings introduced</li>
+                    <li>18KT gold used</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Market Advantage</h3>
+                <ul>
+                    <li>We are the first to introduce this concept</li>
+                    <li>Creates excitement for "One-of-its-kind" product</li>
+                    <li>High level of personalization - single rough diamond carved into two</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Process</h3>
+                <ul>
+                    <li>Rough natural diamond with the best parameters are selected</li>
+                    <li>Advanced technology used to plan the cuts in order to find the best possible two diamonds</li>
+                    <li>A lot of waste happens while cutting the rough diamond into two</li>
+                    <li>Larger diamond is selected for ladies' ring, smaller one for gents' ring</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Product Tags</h3>
+                <ul>
+                    <li>Pair of rings come with the same code - one tag two pieces</li>
+                    <li>Cannot be split or sold separately</li>
+                    <li>Customer Orders - new tab in Solitaire portal to raise MTO requests</li>
+                    <li>Lead time - 15 days</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Theme Code</h3>
+                <p>E4SR</p>
+            </div>
+    
+            <div class="box">
+                <h3>Why Soulmate Diamond pairs to express Love?</h3>
+                <ul>
+                    <li>Marriages are made in Heaven</li>
+                    <li>Two souls are chosen for each other - billions of years ago</li>
+                    <li>Represents the timeless bond that a couple shares!</li>
+                </ul>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>Let's grow together!</summary>
+        <div class="content">
+    
+            <div class="box">
+                <p>I would truly appreciate your help in gathering more information or offering any valuable suggestions. Every little bit makes a difference!</p>
+                <p>Feel free to reach out to me at <b>btqtbh@titan.co.in</b> with the subject line as "The Tanishq Realm Suggestions".</p>
+                <p><b>Let's Collaborate!</b></p>
+            </div>
+    
+        </div>
+    </details>
+
+
+<div class="footer">Curated by: Swaroop Chakraborty, TBH-Bhopal</div>
+</section>
+</body>
+</html>
