@@ -13,7 +13,7 @@
 :root {
     interpolate-size: allow-keywords;
     --bg: hsl(147, 50%, 70%);
-    --header-bg: rgba(3, 68, 3, 0.3) ;
+    --header-bg: rgba(3, 68, 3, 0.5) ;
     --bg-details: hsl(120, 50%, 95%);
     --bg-box: #fff;
     --header-font-color: #fff;
@@ -117,7 +117,7 @@ details {
 	border-radius: 0.3rem;
 	overflow: hidden;
 	box-sizing: border-box;
-    box-shadow: 1px 1px 5px hsl(0, 0%, 60%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* don't add margin/padding to this, add it to the actual stuff inside the details content */
@@ -178,7 +178,7 @@ details[open] summary::after {
         border-radius: 0.3rem;
         overflow: hidden;
         border: 1px solid rgba(0, 0, 0, 0.1);
-        box-shadow: 1px 1px 5px hsl(0, 0%, 80%);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 }
 
@@ -197,6 +197,38 @@ details[open] summary::after {
 .box.row5 {
 	grid-row: span 5;
 }
+
+.realm {
+    display: none;
+}
+
+.error {
+    font-family: Barlow Condensed;
+    font-size: var(--h1-font-size);
+    color: red;
+}
+
+.logpage {
+    margin: 0;
+    padding: 0;
+    font-family: Barlow Condensed;
+    font-size: var(--h1-font-size);
+    color: var(--header-font-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-form {
+    margin: 1rem;
+    padding: 2rem;
+    max-width: 20rem;
+    background-color: var(--header-bg);
+    text-align: center;
+    border-radius: 0.3rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
     
 
 </style>
@@ -204,6 +236,23 @@ details[open] summary::after {
 </head>
 <body>
 
+<div class="logpage">
+    <div id="login-form">
+        <h1>Please log in</h1>
+        <form id="login" onsubmit="return validateLogin()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required><br><br>
+
+            <input type="submit" value="Log In">
+        </form>
+        <p class="error" id="error-message"></p>
+    </div>
+</div>
+
+<main id="realm" class="realm">
 <nav>
     <h1>The Tanishq Realm</h1>
     <h6>Beyond Jewellery: Timeless Elegance and Inspiration</h6>
@@ -219,7 +268,7 @@ details[open] summary::after {
                 <ul>
                     <li><b>1868</b> - TATA started.</li>
                     <li><b>1987</b> - Titan started.</li>
-                    <li><b>1994</b> - Tanishq’s very first <b>factory</b> with a proper karigaar park was set up in Hosur, Tamil Nadu with the launch of 18k gold watches studded with precious stones.</li>
+                    <li><b>1994</b> - Tanishq's very first <b>factory</b> with a proper karigaar park was set up in Hosur, Tamil Nadu with the launch of 18k gold watches studded with precious stones.</li>
                     <li><b>1996</b> - First Tanishq <b>Store</b> was opened in Chennai.</li>
                 </ul>
             </div>
@@ -242,7 +291,7 @@ details[open] summary::after {
 
             <div class="box">
                 <h3>The word 'Tanishq'</h3>
-                <p>The term Tanishq was coined by <b>Mr. Xerxes Desai</b> by marrying the words <b>‘Tan’</b> meaning body and <b>‘Nishk’</b> meaning a gold ornament.</p>
+                <p>The term Tanishq was coined by <b>Mr. Xerxes Desai</b> by marrying the words <b>'Tan'</b> meaning body and <b>'Nishk'</b> meaning a gold ornament.</p>
             </div>
     
             <div class="box">
@@ -563,7 +612,7 @@ details[open] summary::after {
     
             <div class="box">
                 <h3>WBQ in Tanishq Jewellery</h3>
-                <p>WBQ is the world’s Best Quality Standards for studded Jewellery. We have adopted the best techniques in the world to create world class products with the worlds best quality features in FIT to FINISH parameters.</p>
+                <p>WBQ is the world's Best Quality Standards for studded Jewellery. We have adopted the best techniques in the world to create world class products with the worlds best quality features in FIT to FINISH parameters.</p>
 					<ul>
 						<li>Replacing Traditional Round Prongs with Innovative Tapered Square Prongs. This has increased stone visibility and reduced prong visibility (40% pavilion made visible, initially pavilion not visible). This has also improved Setting security with more strength.</li>
 						<li>Transformation in the collect design with stronger Base, more strength, ability to withstand more shear and force.</li>
@@ -2399,5 +2448,40 @@ details[open] summary::after {
 
 <div class="footer">Curated by: Swaroop Chakraborty, TBH-Bhopal</div>
 </section>
+</main>
+
+<script>
+    // Hardcoded credentials for demonstration
+    const validUsername = "TBH";
+    const validPassword = "@Pass#123";
+
+    // Validate login function
+    function validateLogin() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const errorMessage = document.getElementById("error-message");
+
+        // Check credentials
+        if (username === validUsername && password === validPassword) {
+            // Show protected content and hide login form
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("realm").style.display = "block";
+            errorMessage.textContent = ''; // Clear error message
+            return false; // Prevent form submission
+        } else {
+            errorMessage.textContent = "Invalid username or password.";
+            return false; // Prevent form submission
+        }
+    }
+
+    // Logout function to log out and show the login form
+    function logout() {
+        document.getElementById("login-form").style.display = "block";
+        document.getElementById("realm").style.display = "none";
+    }
+</script>
+
+
+
 </body>
 </html>
