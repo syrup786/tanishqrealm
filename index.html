@@ -24,6 +24,7 @@
     --h3-font-size: 1.1rem;  /* Sub-subheading 1.1rem */
     --body-font-size: 1rem; /* Base body font size 1rem */
     --footer-font-size: 0.7rem;  /* Footer 0.75rem */
+    --button-font-size: 0.9rem;  /* Footer 0.75rem */
 }
 
 * {
@@ -93,6 +94,8 @@ nav {
     top: 0;
     margin-bottom: 1rem;
     z-index: 9999;
+
+    display: flex;
 }
 
 .middle {
@@ -142,11 +145,27 @@ summary {
 	
 	display:flex;
 	align-items: flex-start;
+
+    list-style-type: none;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 details > summary::marker {
 	content: "";
 	list-style: none;
+    display: none;
+}
+
+details::-webkit-details-marker {
+    display: none;
+}
+
+details > summary::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
 }
 
 details > summary::after {
@@ -210,9 +229,9 @@ details[open] summary::after {
 
 .logpage {
     margin: 0;
-    padding: 0;
-    font-family: Barlow Condensed;
-    font-size: var(--h1-font-size);
+    padding: 0;    
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: var(--h2-font-size);
     color: var(--header-font-color);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 
@@ -238,8 +257,8 @@ input[type="text"], input[type="password"] {
     border: 1px solid #ccc;
     border-radius: 0.3rem;
     box-sizing: border-box;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);    
-    font-family: Barlow Condensed;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -250,23 +269,42 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 input[type="submit"] {
-    width: 10rem;
-    padding: 0.5rem;
-    background-color: #4CAF50; 
-    font-family: Barlow Condensed;
-    text-transform: uppercase;
+    width: 5rem;
+    padding: 0.3rem;
+    background-color: var(--header-bg); 
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: var(--button-font-size);
+    font-weight: 400;
     color: #fff; 
+    text-transform: uppercase;
     border: none;
     border-radius: 0.3rem;
-    font-size: 1.5rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049; 
-}   
- 
+    background-color: rgba(3, 68, 3, 0.9);
+}
+
+button {
+    width: 5rem;
+    padding: 0.3rem;
+    background-color: var(--header-bg);
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: var(--button-font-size);
+    font-weight: 400;
+    color: #fff; 
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: rgba(3, 68, 3, 0.9);
+}
 
 </style>
 
@@ -290,10 +328,13 @@ input[type="submit"]:hover {
     </div>
 </div>
 
+
+
 <main id="realm" class="realm">
 <nav>
     <h1>The Tanishq Realm</h1>
     <h6>Beyond Jewellery: Timeless Elegance and Inspiration</h6>
+    <button onclick="logout()">Log Out</button>
 </nav>
 <section class="middle">
 
@@ -815,6 +856,120 @@ input[type="submit"]:hover {
             <div class="box">
                 <h3>Higher ____ has a tendency to impact the colour of the diamond and make the solitaire look oily?</h3>
                 <p>Fluorescence</p>
+            </div>
+    
+        </div>
+    </details>
+
+    <details name="mygroup">
+        <summary>De Beers Group</summary>
+        <div class="content">
+    
+            <div class="box">
+                <h3>About</h3>
+                <p>A partnership to grow India's natural diamond in jewellery market.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Our Influence on Customer Experience</h3>
+                <ul>
+                    <li>Diamonds - An emotional and personal identity for our customers.</li>
+                    <li>We are a GUIDE - Who supports the customer on their diamond journey!</li>
+                    <li>Helping build a delightful & memorable purchasing experience!</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Diamonds Consumers</h3>
+                <ul>
+                    <li>76% are Gen Z consumers</li>
+                    <li>They are first time diamond buyers, grow to bigger purchases like occasion wear jewellery</li>
+                    <li>Main motivations for purchase - 22% Personal empowerment, 23% Love</li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Points to Highlight</h3>
+                <p><b>Tanishq Diamond Promises:</b></p>
+                <ul>
+                    <li>Rarest natural diamonds</li>
+                    <li>Best light performance for the best sparkle</li>
+                    <li>Assured diamond value for life</li>
+                    <li>Uniformity in colour and clarity bands in every Tanishq diamond jewellery piece</li>
+                </ul>
+                <p><b>De Beers Natural Diamond Messaging:</b></p>
+                <ul>
+                    <li>Rare</li>
+                    <li>Unique</li>
+                    <li>Valuable</li>
+                    <li>Timeless</li>
+                </ul>
+                <p>Tanishq Promises with the De Beers diamond messages to appeal to the customers as per Tanishq Way of Life probing.</p>
+            </div>
+    
+            <div class="box">
+                <h3>Promise1: Rarest natural diamond</h3>
+                <p>Journey of a diamond, from formation to brilliance, is a tale of fortune.</p>
+                <ul>
+                    <li>Formation - Heat: 1050&degC, Pressure: 50000 elephants on 1 sq. inch, Depth: 200km below earth's surface</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+    
+            <div class="box">
+                <h3>Header</h3>
+                <p>Text</p>
+            </div>
+    
+            <div class="box">
+                <h3>Header</h3>
+                <p>Text</p>
+            </div>
+    
+            <div class="box">
+                <h3>Header</h3>
+                <p>Text</p>
+            </div>
+    
+            <div class="box">
+                <h3>Header</h3>
+                <p>Text</p>
+            </div>
+    
+            <div class="box">
+                <h3>Header</h3>
+                <p>Text</p>
+            </div>
+    
+            <div class="box">
+                <h3>Header</h3>
+                <p>Text</p>
+            </div>
+    
+            <div class="box">
+                <h3>Header</h3>
+                <p>Text</p>
+            </div>
+    
+            <div class="box">
+                <h3>Header</h3>
+                <p>Text</p>
+            </div>
+    
+            <div class="box">
+                <h3>Header</h3>
+                <p>Text</p>
+            </div>
+    
+            <div class="box">
+                <h3>Header</h3>
+                <p>Text</p>
             </div>
     
         </div>
@@ -1415,9 +1570,9 @@ input[type="submit"]:hover {
                 <h3>TEP - Solitaire 2carat+</h3>
                 <table style="width:100%">
                     <tr>
-                        <th style="width:55%">Condition</th>
-                        <th style="width:15%">Below<br/>2 Ct</th>
-                        <th style="width:15%">2 - 5 Ct</th>
+                        <th style="width:50%">Condition</th>
+                        <th style="width:20%">Below<br/>2 Ct</th>
+                        <th style="width:15%">2-5 Ct</th>
                         <th style="width:15%">5Ct+</th>
                     </tr>
                     <tr>
